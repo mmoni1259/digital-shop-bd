@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Shop BD</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f0f8ff, #e0f7fa);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #00bcd4;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    h1 {
+      margin: 10px 0;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .product {
+      background-color: #ffffff;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      margin: 10px;
+      width: 30%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .product:hover {
+      transform: scale(1.03);
+    }
+
+    .product img {
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .product h3,
+    .product p {
+      padding: 10px;
+    }
+
+    form {
+      background-color: #ffffff;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #009688;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00796b;
+    }
+
+    @media (max-width: 768px) {
+      .product {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Welcome to Digital Shop BD</h1>
+    <img src="https://i.postimg.cc/Y0GX0vXg/photo-2025-07-19-16-08-52.jpg" alt="Shop Banner">
+  </header>
+
+  <div class="product-grid">
+    <!-- Product Blocks -->
+    <div class="product" onclick="selectProduct('AT&T PROXY')">
+      <img src="https://wallpapers.com/images/hd/att-icndstwjdir5j68r.jpg" alt="Product 1">
+      <h3>AT&T PROXY</h3>
+      <p>Validity: 7/14/30 DAYS</p>
+      <p>Price: 200 TK / 350 TK / 650 TK</p>
+    </div>
+    <div class="product" onclick="selectProduct('T Mobile Proxy')">
+      <img src="https://static1.anpoimages.com/wordpress/wp-content/uploads/2024/11/t-mobile-low-profile-ap24-hero.jpg" alt="Product 2">
+      <h3>T Mobile Proxy</h3>
+      <p>Validity: 7/14/30 DAYS</p>
+      <p>Price: 200 TK / 350 TK / 650 TK</p>
+    </div>
+    <div class="product" onclick="selectProduct('Verizon Proxy')">
+      <img src="https://www.allconnect.com/wp-content/uploads/2020/07/wireless-verizon-review-hero-1.jpg" alt="Product 3">
+      <h3>Verizon Proxy</h3>
+      <p>Validity: 7/14/30 DAYS</p>
+      <p>Price: 200 TK / 350 TK / 650 TK</p>
+    </div>
+    <div class="product" onclick="selectProduct('Express VPN')">
+      <img src="https://sm.pcmag.com/pcmag_au/review/e/expressvpn/expressvpn-for-android_c4q1.png" alt="Product 4">
+      <h3>Express VPN</h3>
+      <p>Validity: 7/30 DAYS</p>
+      <p>Price: 40 TK / 250 TK</p>
+    </div>
+    <div class="product" onclick="selectProduct('Nord VPN')">
+      <img src="https://www.wpkube.com/wp-content/uploads/2024/08/nordvpn-logo.png" alt="Product 5">
+      <h3>Nord VPN</h3>
+      <p>Validity: 7/30 DAYS</p>
+      <p>Price: 40 TK / 250 TK</p>
+    </div>
+    <div class="product" onclick="selectProduct('Surfshark VPN')">
+      <img src="https://solutionsreview.com/wireless-network/files/2021/10/VPN-SurfShark.jpg" alt="Product 6">
+      <h3>Surfshark VPN</h3>
+      <p>Validity: 7 Days</p>
+      <p>Price: 35 TK</p>
+    </div>
+    <div class="product" onclick="selectProduct('Apple Gift Card')">
+      <img src="https://livecards.net/pl/74407.jpg" alt="Product 7">
+      <h3>Apple Gift Card</h3>
+      <p>5$ 10$ 15$ Custom</p>
+      <p>Price: 550 TK / 1100 TK / 1500 TK</p>
+    </div>
+    <div class="product" onclick="selectProduct('MasterCard Virtual')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2560px-MasterCard_Logo.svg.png" alt="Product 8">
+      <h3>Virtual MasterCard</h3>
+      <p>Balance: 1$-15$</p>
+    </div>
+    <div class="product" onclick="selectProduct('Amazon Gift Card')">
+      <img src="https://shopvian.com/wp-content/uploads/2021/07/778f2cee60f050175dbbee93d205e194.png" alt="Product 9">
+      <h3>Amazon Gift Card</h3>
+      <p>5$ 10$ 15$ Custom</p>
+      <p>Price: 550 TK / 1100 TK / 1500 TK</p>
+    </div>
+    <div class="product" onclick="selectProduct('Amazon Prime Video')">
+      <img src="https://finevpn.org/wp-content/uploads/2024/02/amazon-prime-video-logo-logo.png" alt="Product 10">
+      <h3>Amazon Prime Video</h3>
+      <p>1 Month: 99 TK</p>
+    </div>
+    <div class="product" onclick="selectProduct('All VPN Subscriptions')">
+      <img src="https://1000logos.net/wp-content/uploads/2024/02/Best-VPN-Services.png" alt="Product 11">
+      <h3>All VPN Subscriptions</h3>
+      <p>Contact on WhatsApp: +8801316838963</p>
+    </div>
+    <div class="product" onclick="selectProduct('Gift Cards Collection')">
+      <img src="https://miro.medium.com/v2/resize:fit:572/1*ayCjVveLK9r05ph6oQP5uQ.png" alt="Product 12">
+      <h3>200+ Gift Cards</h3>
+      <p>Contact on WhatsApp</div>
+  </div>
+  <label>Bkash / nagad payment Number 01316838963</label>
+  
+ <label>পেমেন্ট করে নীচের ফর্মটি পূরণ করুন \ ডেলিভারি টাইম 5 minutes to 24 Hours</label>
+
+  <form id="orderForm" action="https://formspree.io/f/xrblbnvp" method="POST">
+    <h2>Order Now via bKash or Nagad</h2>
+
+    <label>Your Name</label>
+    <input type="text" name="name" required>
+
+    <label>Your Email (for delivery)</label>
+    <input type="email" name="email" required>
+
+    <label>Selected Product</label>
+    <input type="text" name="product" id="selectedProduct" readonly required>
+     
+    <label>Bkash / Nagad যে নম্বর দিয়ে পেমেন্ট করেছেন </label>
+<input type="text" name="phone" required>
+
+
+
+    <label>bkash অথবা nagad-এ অর্থ প্রদান করে Transaction ID দিন</label>
+    <input type="text" name="bkash_id" required>
+
+    <label>Note (Optional)</label>
+    <textarea name="note" rows="3"></textarea>
+
+    <button type="submit">Submit Order</button>
+  </form>
+
+  <script>
+    function selectProduct(productName) {
+      document.getElementById('selectedProduct').value = productName;
+      document.getElementById('orderForm').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  </script>
+</body>
+
+</html>
+<p><strong>Contact us for support or any problem:</strong></p>
+<p>📞 WhatsApp: <a href="https://wa.me/8801316838963" target="_blank">+8801316838963</a></p>
+<p>📧 Email: <a href="mailto:mmoni1259@gmail@gmail.com">mmoni1259@gmail.com</a></p>
