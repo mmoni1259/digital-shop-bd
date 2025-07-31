@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Shop BD</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: white(to right, #f0f8ff, #e0f7fa);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #00796b;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 50px;
+      border-radius: 10px;
+    }
+
+    header h1 {
+      font-size: 20px;
+      margin: 5px 10px;
+      flex: 1;
+      background: linear-gradient(90deg, #FFFFFF, #7873f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 3s infinite linear;
+    }
+
+    nav {
+      width: 100%;
+      background: #00796b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      background-color: #009688;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      background-color: #004d40;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+    }
+
+    .search-bar input {
+      width: 60%;
+      padding: 10px;
+      border-radius: 25px;
+      border: 1px solid #00bcd4;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .product {
+      background: linear-gradient(to bottom right, #ffffff, #e3f2fd);
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: popUp 0.5s ease;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .product h3, .product p {
+      padding: 10px;
+      margin: 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+    }
+
+    .buttons button {
+      background-color: #009688;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .buttons button:hover {
+      background-color: #00796b;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    footer {
+      background: #004d40;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffecb3;
+      text-decoration: none;
+      display: block;
+      margin: 6px 0;
+    }
+
+    .info-text {
+      padding: 40px 20px;
+      font-size: 18px;
+      color: #333;
+      max-width: 700px;
+      margin: 40px auto;
+      line-height: 1.6;
+      background: #e0f7fa;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://i.postimg.cc/Y0GX0vXg/photo-2025-07-19-16-08-52.jpg" alt="Shop Logo">
+    <h1>Digital Shop BD</h1>
+  </header>
+
+  <nav>
+    <a onclick="filterCategory('all')">Home</a>
+    <a onclick="filterCategory('proxy')">Proxy</a>
+    <a onclick="filterCategory('vpn')">VPN</a>
+    <a onclick="filterCategory('giftcard')">Gift Cards</a>
+    <a onclick="filterCategory('about')">About</a>
+    <a onclick="filterCategory('support')">Contact/Support</a>
+  </nav>
+
+  <div class="search-bar">
+    <input type="text" placeholder="🔍 সার্চ করুন আপনার পছন্দের প্রোডাক্ট..." onkeyup="searchProducts(this.value)">
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+
+<script>
+  // Products array: [name, image, description, category, detailsText]
+  const allProducts = [
+    ['AT&T PROXY', 'https://wallpapers.com/images/hd/att-icndstwjdir5j68r.jpg', 'Validity: 7/14/30 DAYS\nPrice: 200 TK / 350 TK / 650 TK', 'proxy', 'AT&T Proxy ------Location: United States ------------ 1. Static + Rotating Both Available. যেটা নিবেন নোট এ লিখে দিবেন অর্ডার করার সময়।--------------- 2. Fraud Score :0.   -----------------3. Best For Survey,  CPA,  Social Media, Ad run, + Others.  -----------------4. Private Proxy.--------------5. High speed.-----------Best Proxy ever before. -------ORDER NOW.♻️'],
+    ['T Mobile Proxy', 'https://static1.anpoimages.com/wordpress/wp-content/uploads/2024/11/t-mobile-low-profile-ap24-hero.jpg', 'Validity: 7/14/30 DAYS\nPrice: 200 TK / 350 TK / 650 TK', 'proxy', 'T Mobile Proxy------Location: United States ------------ 1. Static + Rotating Both Available. যেটা নিবেন নোট এ লিখে দিবেন অর্ডার করার সময়।--------------- 2. Fraud Score :0.   -----------------3. Best For Survey,  CPA,  Social Media, Ad run, + Others.  -----------------4. Private Proxy.--------------5. High speed.-----------Best Proxy ever before. -------ORDER NOW.♻️.'],
+    ['Verizon Proxy', 'https://www.allconnect.com/wp-content/uploads/2020/07/wireless-verizon-review-hero-1.jpg', 'Validity: 7/14/30 DAYS\nPrice: 200 TK / 350 TK / 650 TK', 'proxy', 'Verizon Proxy ------Location: United States ------------ 1. Static + Rotating Both Available. যেটা নিবেন নোট এ লিখে দিবেন অর্ডার করার সময়।--------------- 2. Fraud Score :0.   -----------------3. Best For Survey,  CPA,  Social Media, Ad run, + Others.  -----------------4. Private Proxy.--------------5. High speed.-----------Best Proxy ever before. -------ORDER NOW.♻️'],
+ ['Opinion Edge Premium Proxy', 'https://play-lh.googleusercontent.com/Q_EkgqlKYBWTNLYT5JlhYgNyJzXwMYr8Jjyi8NaMIXpw5q_aFyWhWfQpVTKQPA-G1jJK', 'Validity: 7/14/30 DAYS\nPrice: 249 TK / 479 TK / 859 TK', 'proxy', 'Opinion edge Premium proxy.------1.Best premium quality proxy only for opinion edge.------ 2.Daily 8_10$ Garenty.---------3. High Speed And Private proxy.---------4. 100% income Garenty'],   
+    ['DAILY Proxy', 'https://static1.squarespace.com/static/6576ee804a4a13284e8d6af6/686e4dd135ee73555f0fcaf3/686e4dd135ee73555f0fcaf4/1752064072483/Screenshot+2025-07-09+at+13%2C26%2C30-Picsart-AiImageEnhancer.png?format=1500w', 'Validity: 24 hours\nPrice: 39 TK', 'proxy', 'Daily Proxy or 24 hours static proxy for UK , UK , Canada, Germany etc-----For selecting region kindly ad the name of the country in the note option when check out.-------1. Woking on 5 SURVEYS PRIME OPINION HEY CASH website-----2. 100% Withdraw garenty.-------3.Clean and High Speed Proxy.-----4. Best for Account create.--------5.Best for single Use.------6. Private Proxy.'],
+    ['UNITED KINGDOM PROXY', 'https://proxyempire.io/wp-content/uploads/2023/07/Capture-decran-2023-07-25-a-08.09.55.png', 'Validity: 7/14/30 DAYS\nPrice: 200 TK / 350 TK / 650 TK', 'proxy', 'Location: United Kingdom ------------ 1. Static + Rotating Both Available. যেটা নিবেন নোট এ লিখে দিবেন অর্ডার করার সময়।--------------- 2. Fraud Score :0.   -----------------3. Best For Survey,  CPA,  Social Media, Ad run, + Others.  -----------------4. Private Proxy.--------------5. High speed.-----------Best Proxy ever before. -------ORDER NOW.♻️'],
+     ['Canada PROXY', 'https://media.cybernews.com/images/featured/2025/07/best-canada-proxy-providers.png', 'Validity: 7/14/30 DAYS\nPrice: 210 TK / 360 TK / 670 TK', 'proxy', 'Location: Canada ------------ 1. Static + Rotating Both Available. যেটা নিবেন নোট এ লিখে দিবেন অর্ডার করার সময়।--------------- 2. Fraud Score :0.   -----------------3. Best For Survey,  CPA,  Social Media, Ad run, + Others.  -----------------4. Private Proxy.--------------5. High speed.-----------Best Proxy ever before. -------ORDER NOW.♻️'],
+    ['Opinion EDge New Account', 'https://lh3.googleusercontent.com/XTvOpAM7dXnopwykBfixCY0E_by8YGXPhCtZR2hpQl9MFJ2zw3UBLRIyrf1arEBJ8Io=h315', 'Quantity: 1\nPrice: 499 TK', 'proxy', 'Opinion Edge new account. Because of a suffeciant number of accounts can be created we sell it for yourself if need. Stock always limited. KIndly contract support before purchase.'],
+
+    ['Express VPN', 'https://sm.pcmag.com/pcmag_au/review/e/expressvpn/expressvpn-for-android_c4q1.png', 'Validity: 7/30 DAYS\nPrice: 40 TK / 250 TK', 'vpn', 'Express VPN details: Fast and secure VPN service with multiple server locations.'],
+    ['Nord VPN', 'https://www.wpkube.com/wp-content/uploads/2024/08/nordvpn-logo.png', 'Validity: 7/30 DAYS\nPrice: 40 TK / 250 TK', 'vpn', 'Nord VPN details: Highly secure VPN with excellent privacy features.'],
+    ['Surfshark VPN', 'https://solutionsreview.com/wireless-network/files/2021/10/VPN-SurfShark.jpg', 'Validity: 7 DAYS\nPrice: 35 TK', 'vpn', 'Surfshark VPN details: Affordable VPN with unlimited devices and strong encryption.'],
+    ['HMA VPN', 'https://media.cybernews.com/images/750w/2021/03/HMA-Review-Review.jpg', 'Validity: 7/30 DAYS\nPrice: 45 TK / 260 TK', 'vpn', 'CyberGhost VPN details: User-friendly VPN with large server network.'],
+    ['Private Internet Access', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Private_Internet_Access_Logo_2021.svg/640px-Private_Internet_Access_Logo_2021.svg.png', 'Validity: 7/30 DAYS\nPrice: 40 TK / 270 TK', 'vpn', 'Private Internet Access details: Proven VPN service with no logs policy.'],
+    ['ProtonVPN', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_DPF-iHh3_LFiIVcogOcxecZRlNvQOzYNLA&s', 'Validity: 30  DAYS\nPrice: 249 TK', 'vpn', 'ProtonVPN details: Secure VPN from the makers of ProtonMail.'],
+    ['Hotspot Shield', 'https://sm.pcmag.com/t/pcmag_au/review/h/hotspot-sh/hotspot-shield-vpn_y92b.1920.png', 'Validity: 7/30 DAYS\nPrice: 30 TK / 255 TK', 'vpn', 'Hotspot Shield details: VPN known for fast streaming speeds.'],
+ ['CUSTOM ORDER', 'https://1000logos.net/wp-content/uploads/2024/02/Best-VPN-Services.png', 'Validity: 7/30 DAYS\nPrice: 30 TK / 255 TK', 'vpn', 'CUSTOM VPN ORDER details:We have almost every vpn trials and premium 1 months. contract suppot for use this option. If you confirmed use this option for any vpn order and custom price and validity will applied here. '],
+    
+    ['Apple Gift Card', 'https://livecards.net/pl/74407.jpg', 'Balance: 5$, \nPrice: 550 TK', 'giftcard', 'Apple Gift Card details: Redeemable at Apple stores and online.'],
+     ['Apple Gift Card', 'https://livecards.net/pl/74407.jpg', 'Balance: 10$, \nPrice: 1100 TK', 'giftcard', 'Apple Gift Card details: Redeemable at Apple stores and online.'],
+     ['Apple Gift Card', 'https://livecards.net/pl/74407.jpg', 'Balance: 15$, \nPrice: 1650 TK', 'giftcard', 'Apple Gift Card details: Redeemable at Apple stores and online.'],
+    ['Google PLAY Gift Cards', 'https://images.tech.co/wp-content/uploads/2024/11/06100109/google-play-gift-card-708x400.jpg', 'Balance: 5$, \nPrice: 550 TK', 'giftcard', 'Apple Gift Card details: Redeemable at Apple stores and online.'],
+    ['Google PLAY Gift Cards', 'https://images.tech.co/wp-content/uploads/2024/11/06100109/google-play-gift-card-708x400.jpg', 'Balance: 10$, \nPrice: 1100 TK', 'giftcard', 'Redeem: Open Google Play Store → tap your profile → “Payments & subscriptions” → “Redeem code” → enter the gift card code.Use Balance: Buy apps, games, movies, books, or pay for subscriptions like YouTube Premium.'],
+    ['Virtual MasterCard', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2560px-MasterCard_Logo.svg.png', 'Balance: 1$-15$ Per Dollar Ret 110 TK', 'giftcard', 'Virtual MasterCard details: Use online anywhere Mastercard is accepted.'],
+    ['Amazon Gift Card', 'https://shopvian.com/wp-content/uploads/2021/07/778f2cee60f050175dbbee93d205e194.png', 'Available: 5$, 10$, 15$, Custom\nPrice: 550 TK / 1100 TK / 1500 TK', 'giftcard', 'Amazon Gift Card details: Perfect for shopping on Amazon globally.'],
+    ['Amazon Prime Video', 'https://finevpn.org/wp-content/uploads/2024/02/amazon-prime-video-logo-logo.png', '1 Month Plan\nPrice: 99 TK', 'giftcard', 'Amazon Prime Video details: Access to movies and series for one month.'],
+    ['Google Play Gift Card', 'https://images.tech.co/wp-content/uploads/2024/11/06100109/google-play-gift-card-708x400.jpg', 'Available:15$\nPrice: 1650 TK ', 'giftcard', 'Google Play Gift Card details: Redeemable for apps, games, and more on Google Play.'],
+    ['Steam Gift Card', 'https://gamebuybd.com/wp-content/uploads/2024/03/Steam-Gift-Card-US.jpg', 'Available: 5$, 10$, 15$\nPrice: 560 TK / 1110 TK / 1610 TK', 'giftcard', 'Steam Gift Card details: For purchasing games and software on Steam.'],
+    ['Xbox Gift Card', 'https://assets.gamingdeals.com/storage/xbox-gift-cards-header-1612868624W9tI2.png', '5$ / 10$ / 15$ \nPrice: 555 TK / 1105 TK / 1605 TK', 'giftcard', 'Xbox Gift Card details: Redeemable on Xbox and Microsoft Store.'],
+    ['Netflix Gift Card', 'https://gameloverbd.com/public/uploads/all/rTGWjzh9Bfkbk4bTryeEn2It2LQVwi4FHNlAyYVN.webp', '5$/ 10 $/ 15 $\nPrice:555 TK / 1105 TK / 1605 TK', 'giftcard', 'Netflix Gift Card details: One month subscription for Netflix streaming.'],
+  ];
+
+  const productGrid = document.getElementById('productGrid');
+
+  // Render products to the grid
+  function renderProducts(products) {
+    productGrid.innerHTML = products.map(([name, img, desc]) => `
+      <div class="product">
+        <img src="${img}" alt="${name}">
+        <h3>${name}</h3>
+        <p>${desc.replace(/\n/g, '<br>')}</p>
+        <div class="buttons">
+          <button onclick="selectProduct('${name}', \`${desc}\`)">Buy Now</button>
+          <button onclick="showDetails('${name}')">Details</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Show details alert for each product, customizable text from products array
+  function showDetails(productName) {
+    const product = allProducts.find(p => p[0] === productName);
+    if(product) {
+      alert(product[4]); // 5th element is custom details text
+    } else {
+      alert('Details not available.');
+    }
+  }
+
+  // Filter products by category
+  function filterCategory(category) {
+    if (category === 'all' || category === 'home') {
+      renderProducts(allProducts);
+    } else if (category === 'about') {
+      productGrid.innerHTML = `
+        <div class="info-text">
+          <h2>About Digital Shop BD</h2>
+          <p>Welcome to Digital Shop BD, your one-stop shop for proxy servers, VPN subscriptions, and digital gift cards. We aim to provide the best digital products with excellent customer support. Stay tuned for updates and new offers!</p>
+        </div>
+      `;
+    } else if (category === 'support') {
+      productGrid.innerHTML = `
+        <div class="info-text">
+          <h2>Contact & Support</h2>
+          <p>Need help? Contact us anytime via WhatsApp: +8801316838963, email:mmoni1259@gmail.com, or join our community groupshttps://www.facebook.com/share/g/176uwArKUa/. We are here to assist you with orders, payments, or technical support.</p>
+          <p><strong>WhatsApp:</strong> +8801316838963</p>
+          <p><strong>Email:</strong> mmoni1259@gmail.com</p>
+        </div>
+      `;
+    } else {
+      // Filter by category only
+      const filtered = allProducts.filter(p => p[3] === category);
+      renderProducts(filtered);
+    }
+  }
+
+  // Search products by name and category (shows all if search empty)
+  function searchProducts(value) {
+    const val = value.toLowerCase();
+    if (!val) {
+      filterCategory('all');
+      return;
+    }
+    const filtered = allProducts.filter(p => p[0].toLowerCase().includes(val));
+    renderProducts(filtered);
+  }
+
+  // Show popup with product details and order form
+  function selectProduct(name, desc) {
+    document.getElementById('productTitle').innerText = name;
+    document.getElementById('selectedProduct').value = name;
+    document.getElementById('productDescription').innerHTML = desc.replace(/\n/g, '<br>');
+    document.getElementById('popupForm').style.display = 'flex';
+  }
+
+  // Close popup
+  function closePopup() {
+    document.getElementById('popupForm').style.display = 'none';
+  }
+
+  // Initial load: show all products
+  filterCategory('all');
+</script>
+
+<footer>
+  <h3>📞 Contact Support</h3>
+  <a href="https://wa.me/8801316838963" target="_blank">WhatsApp: +8801316838963</a>
+  <a href="mailto:mmoni1259@gmail.com">Email: mmoni1259@gmail.com</a>
+  <h4>📢 Join Our Community</h4>
+  <a href="https://www.facebook.com/groups/1185656563576405" target="_blank">Facebook Group</a>
+  <a href="https://www.facebook.com/groups/1185656563576405" target="_blank">Telegram Group</a>
+  <a href="https://chat.whatsapp.com/yourwhatsappgroup" target="_blank">WhatsApp Group</a>
+</footer>
+
+<div class="popup" id="popupForm">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <h2 id="productTitle"></h2>
+    <p id="productDescription"></p>
+    <div><strong>Bkash / Nagad Number(Sent Money):</strong> 01316838963<br>
+      <small>পেমেন্ট করে নিচের ফর্ম পূরণ করুন (ডেলিভারি টাইম: 5 মিনিট থেকে 24 ঘণ্টা)</small></div>
+    <form action="https://formspree.io/f/xrblbnvp" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email (for delivery)" required>
+      <input type="text" name="product" id="selectedProduct" readonly required>
+      <input type="text" name="phone" placeholder="Bkash / Nagad নম্বর (যা দিয়ে পেমেন্ট করেছেন)" required>
+      <input type="text" name="bkash_id" placeholder="Transaction ID দিন" required>
+      <textarea name="note" rows="3" placeholder="Note (Optional)"></textarea>
+      <button type="submit">Submit Order</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
