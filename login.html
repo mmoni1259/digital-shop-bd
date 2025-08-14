@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Auth Portal</title>
+    <style>
+        :root {
+            --pink-primary: #ff9ff3;
+            --pink-secondary: #f368e0;
+            --yellow-primary: #feca57;
+            --yellow-secondary: #ff9f43;
+            --white: #ffffff;
+            --light-gray: #f5f6fa;
+            --dark-gray: #2f3640;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--pink-primary), var(--yellow-primary));
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .auth-container {
+            width: 90%;
+            max-width: 400px;
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .tabs {
+            display: flex;
+            background: linear-gradient(to right, var(--pink-primary), var(--yellow-primary));
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            color: var(--white);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-bottom: 3px solid var(--white);
+        }
+        
+        .tab:hover:not(.active) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-container {
+            padding: 30px;
+        }
+        
+        .form {
+            display: none;
+        }
+        
+        .form.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px 40px 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input:focus {
+            border-color: var(--pink-secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(243, 104, 224, 0.2);
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 38px;
+            cursor: pointer;
+            color: var(--dark-gray);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .password-toggle:hover {
+            opacity: 1;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(to right, var(--pink-secondary), var(--yellow-secondary));
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .forgot-password {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: var(--pink-secondary);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+        
+        .error-message {
+            color: #e84118;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        .success-message {
+            color: #4cd137;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            color: var(--dark-gray);
+            font-size: 14px;
+        }
+        
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .divider::before {
+            margin-right: 10px;
+        }
+        
+        .divider::after {
+            margin-left: 10px;
+        }
+        
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 480px) {
+            .auth-container {
+                width: 95%;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+    <!-- Font Awesome for eye icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('login')">Login</div>
+            <div class="tab" onclick="switchTab('signup')">Sign Up</div>
+            <div class="tab" onclick="switchTab('reset')">Reset Password</div>
+        </div>
+        
+        <div class="form-container">
+            <!-- Login Form -->
+            <div id="login-form" class="form active">
+                <h2>Welcome Back!</h2>
+                <div class="input-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password">
+                    <i class="fas fa-eye password-toggle" onclick="togglePassword('login-password', this)"></i>
+                </div>
+                <button onclick="login()">Login</button>
+                <a href="#" class="forgot-password" onclick="switchTab('reset')">Forgot Password?</a>
+                <div id="login-error" class="error-message"></div>
+                
+                <div class="divider">or continue with</div>
+                
+                <div class="social-login">
+                    <div class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#DB4437"><path d="M12.545 10.239v3.821h5.445c-0.712 2.315-2.647 3.972-5.445 3.972-3.332 0-6.033-2.701-6.033-6.032s2.701-6.032 6.033-6.032c1.498 0 2.866 0.549 3.921 1.453l2.814-2.814c-1.784-1.667-4.143-2.685-6.735-2.685-5.521 0-10 4.479-10 10s4.479 10 10 10c8.396 0 10-7.524 10-10 0-0.61-0.056-1.205-0.156-1.781h-9.844z"></path></svg>
+                    </div>
+                    <div class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#4267B2"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7h-2.54v-2.89h2.54v-2.2c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-0.45 2.89h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"></path></svg>
+                    </div>
+                    <div class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#1DA1F2"><path d="M22.162 5.656a8.384 8.384 0 0 1-2.402.658A4.196 4.196 0 0 0 21.6 4c-.82.488-1.719.83-2.656 1.015a4.182 4.182 0 0 0-7.126 3.814 11.874 11.874 0 0 1-8.62-4.37 4.168 4.168 0 0 0-.566 2.103c0 1.45.738 2.731 1.86 3.481a4.168 4.168 0 0 1-1.894-.523v.052a4.185 4.185 0 0 0 3.355 4.101 4.21 4.21 0 0 1-1.89.072A4.185 4.185 0 0 0 7.97 16.65a8.394 8.394 0 0 1-6.191 1.732 11.83 11.83 0 0 0 6.41 1.88c7.693 0 11.9-6.373 11.9-11.9 0-.18-.005-.362-.013-.54a8.496 8.496 0 0 0 2.087-2.165z"></path></svg>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Signup Form -->
+            <div id="signup-form" class="form">
+                <h2>Create Account</h2>
+                <div class="input-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" placeholder="Enter your full name">
+                </div>
+                <div class="input-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password">
+                    <i class="fas fa-eye password-toggle" onclick="togglePassword('signup-password', this)"></i>
+                </div>
+                <div class="input-group">
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" placeholder="Confirm your password">
+                    <i class="fas fa-eye password-toggle" onclick="togglePassword('signup-confirm-password', this)"></i>
+                </div>
+                <button onclick="signup()">Sign Up</button>
+                <div id="signup-error" class="error-message"></div>
+                <div id="signup-success" class="success-message"></div>
+            </div>
+            
+            <!-- Reset Password Form -->
+            <div id="reset-form" class="form">
+                <h2>Reset Password</h2>
+                <p style="text-align: center; margin-bottom: 20px; color: var(--dark-gray);">Enter your email to receive a password reset link</p>
+                <div class="input-group">
+                    <label for="reset-email">Email</label>
+                    <input type="email" id="reset-email" placeholder="Enter your email">
+                </div>
+                <button onclick="resetPassword()">Send Reset Link</button>
+                <a href="#" class="forgot-password" onclick="switchTab('login')">Back to Login</a>
+                <div id="reset-error" class="error-message"></div>
+                <div id="reset-success" class="success-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+           apiKey: "AIzaSyDx9M7ndG4oMajZu8tvpFW453Ut04_yccc",
+  authDomain: "digital-shop-bd-c780d.firebaseapp.com",
+  projectId: "digital-shop-bd-c780d",
+  storageBucket: "digital-shop-bd-c780d.firebasestorage.app",
+  messagingSenderId: "214382616216",
+  appId: "1:214382616216:web:02959d935a16261c9cbaed",
+  measurementId: "G-4J1PL9T6BP"
+};
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Password toggle function
+        function togglePassword(inputId, icon) {
+            const input = document.getElementById(inputId);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                input.type = "password";
+                icon.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        }
+
+        // Tab switching function
+        function switchTab(tabName) {
+            // Hide all forms
+            document.querySelectorAll('.form').forEach(form => {
+                form.classList.remove('active');
+            });
+            
+            // Deactivate all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected form
+            document.getElementById(`${tabName}-form`).classList.add('active');
+            
+            // Activate selected tab
+            document.querySelectorAll('.tab').forEach(tab => {
+                if (tab.textContent.toLowerCase().includes(tabName)) {
+                    tab.classList.add('active');
+                }
+            });
+        }
+
+        // Login function
+        function login() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const errorElement = document.getElementById('login-error');
+            
+            errorElement.textContent = '';
+            
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in
+                    window.location.href = 'dashboard.html';
+                })
+                .catch((error) => {
+                    errorElement.textContent = error.message;
+                });
+        }
+
+        // Signup function
+        function signup() {
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm-password').value;
+            const errorElement = document.getElementById('signup-error');
+            const successElement = document.getElementById('signup-success');
+            
+            errorElement.textContent = '';
+            successElement.textContent = '';
+            
+            if (password !== confirmPassword) {
+                errorElement.textContent = 'Passwords do not match';
+                return;
+            }
+            
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed up
+                    successElement.textContent = 'Account created successfully!';
+                    
+                    // Add the user's name to their profile
+                    return userCredential.user.updateProfile({
+                        displayName: name
+                    });
+                })
+                .then(() => {
+                    // Optional: Send email verification
+                    return auth.currentUser.sendEmailVerification();
+                })
+                .then(() => {
+                    console.log('Verification email sent');
+                })
+                .catch((error) => {
+                    errorElement.textContent = error.message;
+                });
+        }
+
+        // Reset password function
+        function resetPassword() {
+            const email = document.getElementById('reset-email').value;
+            const errorElement = document.getElementById('reset-error');
+            const successElement = document.getElementById('reset-success');
+            
+            errorElement.textContent = '';
+            successElement.textContent = '';
+            
+            auth.sendPasswordResetEmail(email)
+                .then(() => {
+                    successElement.textContent = 'Password reset email sent! Check your inbox.';
+                })
+                .catch((error) => {
+                    errorElement.textContent = error.message;
+                });
+        }
+
+        // Auth state observer
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in
+                console.log('User logged in:', user.email);
+            } else {
+                // User is signed out
+                console.log('User logged out');
+            }
+        });
+    </script>
+</body>
+</html>
