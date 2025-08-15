@@ -1,3 +1,7 @@
+
+<form id="orderForm" action="https://formspree.io/f/xrblbnvp" method="POST" class="space-y-4">
+
+<form id="orderForm" action="https://formspree.io/f/xrblbnvp" method="POST" class="space-y-4">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +10,7 @@
     <title>Digital Shop BD - Your Digital Solutions Partner</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -116,23 +121,6 @@
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
-        
-        .logo-container {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: white;
-        }
-        
-        .logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -141,8 +129,8 @@
         <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
-                    <div class="logo-container">
-                        <img src="https://i.ibb.co.com/bMGzH3VS/photo-. .jpg" alt="Digital Shop BD Logo" class="logo-img">
+                    <div class="w-10 h-10 rounded-full overflow-hidden">
+                        <img src="https://i.ibb.co.com/bMGzH3VS/photo-. .jpg" alt="Digital Shop BD Logo" class="w-full h-full object-cover">
                     </div>
                     <h1 class="text-xl md:text-2xl font-bold text-white">Digital Shop BD</h1>
                 </div>
@@ -153,52 +141,6 @@
                     <button onclick="toggleSearch()" class="text-white hover:text-blue-200 transition-colors p-2 rounded-full hover:bg-white hover:bg-opacity-10">
                         <i class="fas fa-search text-lg"></i>
                     </button>
-                    
-                    <!-- Balance Display -->
-                    <button onclick="showBalanceModal()" class="bg-green-500 bg-opacity-20 border border-green-400 border-opacity-30 rounded-full px-3 py-1 text-white hover:bg-green-500 hover:bg-opacity-30 transition-colors flex items-center space-x-2">
-                        <i class="fas fa-coins text-green-300"></i>
-                        <span class="font-medium"><span id="headerBalance">0</span></span>
-                        <i class="fas fa-plus text-green-300 text-sm"></i>
-                    </button>
-                    
-                    <!-- Account Display -->
-                    <div class="relative">
-                        <button onclick="toggleAccountMenu()" class="bg-blue-500 bg-opacity-20 border border-blue-400 border-opacity-30 rounded-full px-3 py-1 text-white hover:bg-blue-500 hover:bg-opacity-30 transition-colors flex items-center space-x-2">
-                            <i class="fas fa-user text-blue-300"></i>
-                            <div class="text-left">
-                                <div class="text-sm font-medium" id="userName">Guest</div>
-                                <div class="text-xs opacity-75" id="userEmail">Not logged in</div>
-                            </div>
-                            <i class="fas fa-chevron-down text-blue-300 text-xs"></i>
-                        </button>
-                        
-                        <!-- Account Dropdown -->
-                        <div id="accountMenu" class="hidden absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 z-50">
-                            <div class="p-4 border-b border-gray-100">
-                                <div class="font-medium text-gray-800" id="dropdownUserName">Guest User</div>
-                                <div class="text-sm text-gray-500" id="dropdownUserEmail">guest@example.com</div>
-                            </div>
-                            <div class="py-2">
-                                <button onclick="showProfile()" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 flex items-center space-x-2">
-                                    <i class="fas fa-user-circle text-gray-400"></i>
-                                    <span>My Profile</span>
-                                </button>
-                                <button onclick="showOrderHistory()" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 flex items-center space-x-2">
-                                    <i class="fas fa-history text-gray-400"></i>
-                                    <span>Order History</span>
-                                </button>
-                                <button onclick="showBalanceModal()" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 flex items-center space-x-2">
-                                    <i class="fas fa-wallet text-gray-400"></i>
-                                    <span>Add Funds</span>
-                                </button>
-                                <hr class="my-2">
-                                <button onclick="logout()" class="w-full text-left px-4 py-2 text-red-600 hover:bg-red-50 flex items-center space-x-2">
-                                    <i class="fas fa-sign-out-alt text-red-400"></i>
-                                    <span>Logout</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 
                 <nav class="hidden md:flex space-x-6">
@@ -282,7 +224,7 @@
                 <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mt-2 rounded-full"></div>
             </div>
             
-            <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+            <div id="productGrid" class="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6"></div>
         </div>
 
         <!-- About Section -->
@@ -318,7 +260,7 @@
                         <div class="space-y-4">
                             <div class="flex items-center space-x-3">
                                 <i class="fab fa-whatsapp text-green-500 text-xl"></i>
-                                <span>WhatsApp: +8801316838963</span>
+                                <span>WhatsApp: +880 1316838963</span>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <i class="fas fa-envelope text-blue-500 text-xl"></i>
@@ -333,7 +275,7 @@
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-4">Join Our Community</h3>
                         <div class="space-y-3">
-                            <a href="https://www.facebook.com/groups/1185656563576405" class="flex items-center space-x-3 text-blue-600 hover:text-blue-800 transition-colors">
+                            <a href="#" class="flex items-center space-x-3 text-blue-600 hover:text-blue-800 transition-colors">
                                 <i class="fab fa-facebook text-xl"></i>
                                 <span>Facebook Group</span>
                             </a>
@@ -351,88 +293,7 @@
             </div>
         </div>
 
-        <!-- Profile Section -->
-        <div id="profileSection" class="hidden">
-            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6">My Profile</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Account Information</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-user text-blue-500 text-xl"></i>
-                                <div>
-                                    <div class="font-medium" id="profileUserName">Guest User</div>
-                                    <div class="text-sm text-gray-500">Full Name</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-envelope text-green-500 text-xl"></i>
-                                <div>
-                                    <div class="font-medium" id="profileUserEmail">guest@example.com</div>
-                                    <div class="text-sm text-gray-500">Email Address</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-calendar text-purple-500 text-xl"></i>
-                                <div>
-                                    <div class="font-medium" id="profileJoinDate">January 2024</div>
-                                    <div class="text-sm text-gray-500">Member Since</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Account Stats</h3>
-                        <div class="space-y-4">
-                            <div class="bg-blue-50 p-4 rounded-lg">
-                                <div class="text-2xl font-bold text-blue-600">৳<span id="profileBalance">0</span></div>
-                                <div class="text-sm text-blue-500">Current Balance</div>
-                            </div>
-                            <div class="bg-green-50 p-4 rounded-lg">
-                                <div class="text-2xl font-bold text-green-600" id="totalOrders">0</div>
-                                <div class="text-sm text-green-500">Total Orders</div>
-                            </div>
-                            <div class="bg-purple-50 p-4 rounded-lg">
-                                <div class="text-2xl font-bold text-purple-600">৳<span id="totalSpent">0</span></div>
-                                <div class="text-sm text-purple-500">Total Spent</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Order History Section -->
-        <div id="orderHistorySection" class="hidden">
-            <div class="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6">Order History</h2>
-                <div id="orderHistoryList" class="space-y-4">
-                    <!-- Sample order for demo -->
-                    <div class="border border-gray-200 rounded-lg p-4">
-                        <div class="flex justify-between items-start mb-3">
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Premium VPN Access - 1 Month</h4>
-                                <p class="text-sm text-gray-500">Order #12345 • January 15, 2024</p>
-                            </div>
-                            <div class="text-right">
-                                <div class="font-bold text-green-600">৳300</div>
-                                <span class="inline-block px-2 py-1 text-xs bg-green-100 text-green-800 rounded-full">Completed</span>
-                            </div>
-                        </div>
-                        <div class="text-sm text-gray-600">
-                            <p>Payment Method: Account Balance</p>
-                            <p>Status: Delivered via email</p>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center py-8 text-gray-500">
-                        <i class="fas fa-shopping-bag text-4xl mb-4 opacity-50"></i>
-                        <p>Your order history will appear here</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
     <!-- Product Details Modal -->
@@ -461,23 +322,23 @@
                     </button>
                 </div>
                 
-                <form id="orderForm" class="space-y-4">
+                <form id="orderForm" action="https://formspree.io/f/xrblbnvp" method="POST" class="space-y-4">
                     <div id="orderProductInfo" class="bg-gray-50 p-4 rounded-lg mb-6"></div>
                     
                     <div class="grid md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-                            <input type="text" id="customerName" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <input type="text" id="customerName" name="customer_name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                            <input type="email" id="customerEmail" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <input type="email" id="customerEmail" name="customer_email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                     </div>
                     
                     <div id="planSelection" class="hidden">
                         <label class="block text-sm font-medium text-gray-700 mb-2">Select Plan *</label>
-                        <select id="planSelect" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="updatePrice()">
+                        <select id="planSelect" name="selected_plan" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="updatePrice()">
                             <option value="">Choose a plan...</option>
                         </select>
                     </div>
@@ -486,52 +347,36 @@
                         <div class="text-lg font-semibold text-blue-800">
                             Total Price: <span id="totalPrice">৳0</span>
                         </div>
-                        <div class="text-sm text-blue-600 mt-1">
-                            Current Balance: ৳<span id="orderBalance">0</span>
+                    </div>
+                    
+                    <!-- Payment Instructions -->
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                        <h4 class="font-semibold text-yellow-800 mb-2">💳 Payment Methods:</h4>
+                        <p class="text-sm text-yellow-700 font-medium">Bkash / Nagad: 01316838963</p>
+                        <p class="text-sm text-yellow-700">⏱️ Delivery time: 5 minutes – 24 hours</p>
+                        <p class="text-sm text-yellow-700 mt-2">Send payment first, then fill the form below with transaction details.</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Payment Phone Number *</label>
+                            <input type="tel" id="paymentPhone" name="payment_phone" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Transaction ID *</label>
+                            <input type="text" id="transactionId" name="transaction_id" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                     </div>
                     
-                    <!-- Payment Method Selection -->
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="font-semibold text-gray-800 mb-3">Payment Method:</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center">
-                                <input type="radio" name="paymentMethod" value="balance" class="mr-2" onchange="togglePaymentFields()">
-                                <span>Use Account Balance</span>
-                                <span class="ml-2 text-sm text-gray-500">(৳<span id="paymentBalance">0</span> available)</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="radio" name="paymentMethod" value="manual" class="mr-2" checked onchange="togglePaymentFields()">
-                                <span>Manual Payment (bKash/Nagad/Rocket)</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div id="manualPaymentFields">
-                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                            <h4 class="font-semibold text-yellow-800 mb-2">Payment Instructions:</h4>
-                            <p class="text-sm text-yellow-700">Send payment to: bKash/Nagad/Rocket - 01316838963</p>
-                            <p class="text-sm text-yellow-700">Then fill the form below with transaction details.</p>
-                        </div>
-                        
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Payment Phone Number *</label>
-                                <input type="tel" id="paymentPhone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Transaction ID *</label>
-                                <input type="text" id="transactionId" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                        </div>
-                    </div>
+
                     
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Additional Notes</label>
-                        <textarea id="orderNotes" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Additional Notes (Optional)</label>
+                        <textarea id="orderNotes" name="additional_notes" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Any special instructions or requirements..."></textarea>
                     </div>
                     
-                    <input type="hidden" id="selectedProduct">
+                    <input type="hidden" id="selectedProduct" name="product_name">
+                    <input type="hidden" id="totalPriceField" name="total_price">
                     
                     <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors font-medium">
                         Submit Order
@@ -541,59 +386,7 @@
         </div>
     </div>
 
-    <!-- Balance Modal -->
-    <div id="balanceModal" class="modal">
-        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 animate-fade-in">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-2xl font-bold text-gray-800">Add Funds</h3>
-                    <button onclick="closeModal('balanceModal')" class="text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-                
-                <!-- Current Balance Display -->
-                <div class="balance-card text-white p-4 rounded-lg mb-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-sm opacity-90">Current Balance</p>
-                            <p class="text-2xl font-bold">৳<span id="modalBalance">0</span></p>
-                        </div>
-                        <i class="fas fa-wallet text-3xl opacity-50"></i>
-                    </div>
-                </div>
-                
-                <form id="addFundsForm" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Amount to Add *</label>
-                        <input type="number" id="addAmount" min="100" step="50" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Minimum ৳100">
-                    </div>
-                    
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <h4 class="font-semibold text-blue-800 mb-2">Payment Instructions:</h4>
-                        <p class="text-sm text-blue-700">1. Send the amount to: bKash/Nagad/Rocket - 01316838963</p>
-                        <p class="text-sm text-blue-700">2. Fill the transaction details below</p>
-                        <p class="text-sm text-blue-700">3. Your balance will be updated after verification</p>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Your Phone Number *</label>
-                            <input type="tel" id="senderPhone" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Transaction ID *</label>
-                            <input type="text" id="fundTransactionId" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="w-full bg-green-600 text-white py-3 px-4 rounded-md hover:bg-green-700 transition-colors font-medium">
-                        <i class="fas fa-plus mr-2"></i>Submit Fund Request
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Footer -->
     <footer class="gradient-bg text-white mt-16">
@@ -606,14 +399,14 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
                     <div class="space-y-2 text-blue-100">
-                        <p><i class="fab fa-whatsapp mr-2"></i> +8801316838963</p>
-                        <p><i class="fas fa-envelope mr-2"></i> mmoni1259@gmail.com</p>
+                        <p><i class="fab fa-whatsapp mr-2"></i> +880 1316838963</p>
+                        <p><i class="fas fa-envelope mr-2"></i> support@digitalshopbd.com</p>
                     </div>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Join Our Community</h4>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/groups/1185656563576405" class="text-blue-100 hover:text-white transition-colors">
+                        <a href="#" class="text-blue-100 hover:text-white transition-colors">
                             <i class="fab fa-facebook text-xl"></i>
                         </a>
                         <a href="#" class="text-blue-100 hover:text-white transition-colors">
@@ -631,37 +424,16 @@
         </div>
     </footer>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
-    
     <script>
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDx9M7ndG4oMajZu8tvpFW453Ut04_yccc",
-            authDomain: "digital-shop-bd-c780d.firebaseapp.com",
-            projectId: "digital-shop-bd-c780d",
-            storageBucket: "digital-shop-bd-c780d.firebasestorage.app",
-            messagingSenderId: "214382616216",
-            appId: "1:214382616216:web:02959d935a16261c9cbaed",
-            measurementId: "G-4J1PL9T6BP"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const db = firebase.firestore();
-
-        // Product data from your original website
+        // Product data with real products and pricing
         const products = [
             // Proxy Products
             {
-                name: "AT&T PROXY",
+                name: "AT&T Proxy",
                 image: "https://wallpapers.com/images/hd/att-icndstwjdir5j68r.jpg",
-                description: "Validity: 7/14/30 DAYS\nPrice: 200 TK / 350 TK / 650 TK",
+                description: "Premium AT&T proxy service\nHigh-speed connection\nReliable network\nMultiple validity options",
                 category: "proxy",
-                details: "AT&T Proxy ------Location: United States ------------ 1. Static + Rotating Both Available. যেটা নিবেন নোট এ লিখে দিবেন অর্ডার করার সময়।--------------- 2. Fraud Score :0.   -----------------3. Best For Survey,  CPA,  Social Media, Ad run, + Others.  -----------------4. Private Proxy.--------------5. High speed.-----------Best Proxy ever before. -------ORDER NOW.♻️",
+                details: "Premium AT&T proxy service offering high-speed, reliable connections with excellent uptime. Perfect for various online activities requiring US-based IP addresses.",
                 plans: [
                     { name: "7 Days", price: 200 },
                     { name: "14 Days", price: 350 },
@@ -671,9 +443,9 @@
             {
                 name: "T Mobile Proxy",
                 image: "https://static1.anpoimages.com/wordpress/wp-content/uploads/2024/11/t-mobile-low-profile-ap24-hero.jpg",
-                description: "Validity: 7/14/30 DAYS\nPrice: 200 TK / 350 TK / 650 TK",
+                description: "T-Mobile proxy network\nFast mobile connections\nSecure browsing\nFlexible plans",
                 category: "proxy",
-                details: "T Mobile Proxy------Location: United States ------------ 1. Static + Rotating Both Available. যেটা নিবেন নোট এ লিখে দিবেন অর্ডার করার সময়।--------------- 2. Fraud Score :0.   -----------------3. Best For Survey,  CPA,  Social Media, Ad run, + Others.  -----------------4. Private Proxy.--------------5. High speed.-----------Best Proxy ever before. -------ORDER NOW.♻️.",
+                details: "T-Mobile proxy service providing fast mobile network connections with excellent security and reliability. Ideal for mobile-specific tasks and applications.",
                 plans: [
                     { name: "7 Days", price: 200 },
                     { name: "14 Days", price: 350 },
@@ -683,9 +455,9 @@
             {
                 name: "Verizon Proxy",
                 image: "https://www.allconnect.com/wp-content/uploads/2020/07/wireless-verizon-review-hero-1.jpg",
-                description: "Validity: 7/14/30 DAYS\nPrice: 200 TK / 350 TK / 650 TK",
+                description: "Verizon network proxy\nPremium speed & quality\nStable connections\nTrusted network",
                 category: "proxy",
-                details: "Verizon Proxy ------Location: United States ------------ 1. Static + Rotating Both Available. যেটা নিবেন নোট এ লিখে দিবেন অর্ডার করার সময়।--------------- 2. Fraud Score :0.   -----------------3. Best For Survey,  CPA,  Social Media, Ad run, + Others.  -----------------4. Private Proxy.--------------5. High speed.-----------Best Proxy ever before. -------ORDER NOW.♻️",
+                details: "Verizon proxy service leveraging one of the most reliable networks in the US. Offers premium speed, quality, and stability for all your proxy needs.",
                 plans: [
                     { name: "7 Days", price: 200 },
                     { name: "14 Days", price: 350 },
@@ -694,64 +466,24 @@
             },
             {
                 name: "Opinion Edge Premium Proxy",
-                image: "https://play-lh.googleusercontent.com/Q_EkgqlKYBWTNLYT5JlhYgNyJzXwMYr8Jjyi8NaMIXpw5q_aFyWhWfQpVTKQPA-G1jJK",
-                description: "Validity: 7/14/30 DAYS\nPrice: 249 TK / 479 TK / 859 TK",
+                image: "https://panel.opinion-edge.com/assets/icons/dashboard-logo-icon.png",
+                description: "Opinion Edge premium proxy\nSpecialized for surveys\nHigh success rate\nDedicated support",
                 category: "proxy",
-                details: "Opinion edge Premium proxy.------1.Best premium quality proxy only for opinion edge.------ 2.Daily 8_10$ Garenty.---------3. High Speed And Private proxy.---------4. 100% income Garenty",
+                details: "Specialized proxy service optimized for Opinion Edge and similar survey platforms. High success rate with dedicated support for survey-related activities.",
                 plans: [
                     { name: "7 Days", price: 249 },
-                    { name: "14 Days", price: 479 },
-                    { name: "30 Days", price: 859 }
+                    { name: "15 Days", price: 479 },
+                    { name: "30 Days", price: 799 }
                 ]
-            },
-            {
-                name: "DAILY Proxy",
-                image: "https://static1.squarespace.com/static/6576ee804a4a13284e8d6af6/686e4dd135ee73555f0fcaf3/686e4dd135ee73555f0fcaf4/1752064072483/Screenshot+2025-07-09+at+13%2C26%2C30-Picsart-AiImageEnhancer.png?format=1500w",
-                description: "Validity: 24 hours\nPrice: 39 TK",
-                category: "proxy",
-                details: "Daily Proxy or 24 hours static proxy for UK , UK , Canada, Germany etc-----For selecting region kindly ad the name of the country in the note option when check out.-------1. Woking on 5 SURVEYS PRIME OPINION HEY CASH website-----2. 100% Withdraw garenty.-------3.Clean and High Speed Proxy.-----4. Best for Account create.--------5.Best for single Use.------6. Private Proxy.",
-                fixedPrice: 39
-            },
-            {
-                name: "UNITED KINGDOM PROXY",
-                image: "https://proxyempire.io/wp-content/uploads/2023/07/Capture-decran-2023-07-25-a-08.09.55.png",
-                description: "Validity: 7/14/30 DAYS\nPrice: 200 TK / 350 TK / 650 TK",
-                category: "proxy",
-                details: "Location: United Kingdom ------------ 1. Static + Rotating Both Available. যেটা নিবেন নোট এ লিখে দিবেন অর্ডার করার সময়।--------------- 2. Fraud Score :0.   -----------------3. Best For Survey,  CPA,  Social Media, Ad run, + Others.  -----------------4. Private Proxy.--------------5. High speed.-----------Best Proxy ever before. -------ORDER NOW.♻️",
-                plans: [
-                    { name: "7 Days", price: 200 },
-                    { name: "14 Days", price: 350 },
-                    { name: "30 Days", price: 650 }
-                ]
-            },
-            {
-                name: "Canada PROXY",
-                image: "https://media.cybernews.com/images/featured/2025/07/best-canada-proxy-providers.png",
-                description: "Validity: 7/14/30 DAYS\nPrice: 210 TK / 360 TK / 670 TK",
-                category: "proxy",
-                details: "Location: Canada ------------ 1. Static + Rotating Both Available. যেটা নিবেন নোট এ লিখে দিবেন অর্ডার করার সময়।--------------- 2. Fraud Score :0.   -----------------3. Best For Survey,  CPA,  Social Media, Ad run, + Others.  -----------------4. Private Proxy.--------------5. High speed.-----------Best Proxy ever before. -------ORDER NOW.♻️",
-                plans: [
-                    { name: "7 Days", price: 210 },
-                    { name: "14 Days", price: 360 },
-                    { name: "30 Days", price: 670 }
-                ]
-            },
-            {
-                name: "Opinion EDge New Account",
-                image: "https://lh3.googleusercontent.com/XTvOpAM7dXnopwykBfixCY0E_by8YGXPhCtZR2hpQl9MFJ2zw3UBLRIyrf1arEBJ8Io=h315",
-                description: "Quantity: 1\nPrice: 499 TK",
-                category: "proxy",
-                details: "Opinion Edge new account. Because of a suffeciant number of accounts can be created we sell it for yourself if need. Stock always limited. KIndly contract support before purchase.",
-                fixedPrice: 499
             },
 
             // VPN Products
             {
                 name: "Express VPN",
                 image: "https://sm.pcmag.com/pcmag_au/review/e/expressvpn/expressvpn-for-android_c4q1.png",
-                description: "Validity: 7/30 DAYS\nPrice: 40 TK / 250 TK",
+                description: "Premium ExpressVPN access\nUltra-fast speeds\n94+ countries\nNo-logs policy",
                 category: "vpn",
-                details: "Express VPN details: Fast and secure VPN service with multiple server locations.",
+                details: "ExpressVPN is one of the world's leading VPN services, offering lightning-fast speeds, military-grade encryption, and servers in 94+ countries. Perfect for streaming, gaming, and secure browsing.",
                 plans: [
                     { name: "7 Days", price: 40 },
                     { name: "30 Days", price: 250 }
@@ -760,9 +492,9 @@
             {
                 name: "Nord VPN",
                 image: "https://www.wpkube.com/wp-content/uploads/2024/08/nordvpn-logo.png",
-                description: "Validity: 7/30 DAYS\nPrice: 40 TK / 250 TK",
+                description: "NordVPN premium service\nDouble VPN encryption\n60+ countries\nCyberSec protection",
                 category: "vpn",
-                details: "Nord VPN details: Highly secure VPN with excellent privacy features.",
+                details: "NordVPN offers advanced security features including Double VPN, CyberSec protection, and a strict no-logs policy. With servers in 60+ countries, it's perfect for privacy-conscious users.",
                 plans: [
                     { name: "7 Days", price: 40 },
                     { name: "30 Days", price: 250 }
@@ -771,418 +503,123 @@
             {
                 name: "Surfshark VPN",
                 image: "https://solutionsreview.com/wireless-network/files/2021/10/VPN-SurfShark.jpg",
-                description: "Validity: 7 DAYS\nPrice: 35 TK",
+                description: "Surfshark VPN access\nUnlimited devices\n65+ countries\nCleanWeb feature",
                 category: "vpn",
-                details: "Surfshark VPN details: Affordable VPN with unlimited devices and strong encryption.",
+                details: "Surfshark VPN allows unlimited simultaneous connections, making it perfect for families and businesses. Features CleanWeb ad-blocker and servers in 65+ countries.",
                 fixedPrice: 35
             },
             {
                 name: "HMA VPN",
-                image: "https://media.cybernews.com/images/750w/2021/03/HMA-Review-Review.jpg",
-                description: "Validity: 7/30 DAYS\nPrice: 45 TK / 260 TK",
+                image: "https://i0.wp.com/vpnwired.com/wp-content/uploads/2021/02/HMA-VPN-Review.jpg?fit=1024%2C576&ssl=1",
+                description: "HMA VPN service\n190+ countries\nFast streaming\nEasy to use",
                 category: "vpn",
-                details: "CyberGhost VPN details: User-friendly VPN with large server network.",
-                plans: [
-                    { name: "7 Days", price: 45 },
-                    { name: "30 Days", price: 260 }
-                ]
-            },
-            {
-                name: "Private Internet Access",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Private_Internet_Access_Logo_2021.svg/640px-Private_Internet_Access_Logo_2021.svg.png",
-                description: "Validity: 7/30 DAYS\nPrice: 40 TK / 270 TK",
-                category: "vpn",
-                details: "Private Internet Access details: Proven VPN service with no logs policy.",
-                plans: [
-                    { name: "7 Days", price: 40 },
-                    { name: "30 Days", price: 270 }
-                ]
-            },
-            {
-                name: "ProtonVPN",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_DPF-iHh3_LFiIVcogOcxecZRlNvQOzYNLA&s",
-                description: "Validity: 30 DAYS\nPrice: 249 TK",
-                category: "vpn",
-                details: "ProtonVPN details: Secure VPN from the makers of ProtonMail.",
-                fixedPrice: 249
-            },
-            {
-                name: "Hotspot Shield",
-                image: "https://sm.pcmag.com/t/pcmag_au/review/h/hotspot-sh/hotspot-shield-vpn_y92b.1920.png",
-                description: "Validity: 7/30 DAYS\nPrice: 30 TK / 255 TK",
-                category: "vpn",
-                details: "Hotspot Shield details: VPN known for fast streaming speeds.",
-                plans: [
-                    { name: "7 Days", price: 30 },
-                    { name: "30 Days", price: 255 }
-                ]
-            },
-            {
-                name: "CUSTOM ORDER",
-                image: "https://1000logos.net/wp-content/uploads/2024/02/Best-VPN-Services.png",
-                description: "Validity: 7/30 DAYS\nPrice: 30 TK / 255 TK",
-                category: "vpn",
-                details: "CUSTOM VPN ORDER details:We have almost every vpn trials and premium 1 months. contract suppot for use this option for any vpn order and custom price and validity will applied here.",
-                plans: [
-                    { name: "7 Days", price: 30 },
-                    { name: "30 Days", price: 255 }
-                ]
+                details: "HMA (HideMyAss) VPN offers one of the largest server networks with locations in 190+ countries. Known for fast streaming capabilities and user-friendly interface.",
+                fixedPrice: 199
             },
 
-            // Gift Card Products
+            // Gift Cards
             {
-                name: "Apple Gift Card (5$)",
+                name: "Apple Gift Card",
                 image: "https://livecards.net/pl/74407.jpg",
-                description: "Balance: 5$\nPrice: 550 TK",
+                description: "Apple Store gift cards\nApp Store & iTunes\nInstant delivery\nMultiple denominations",
                 category: "giftcard",
-                details: "Apple Gift Card details: Redeemable at Apple stores and online.",
-                fixedPrice: 550
-            },
-            {
-                name: "Apple Gift Card (10$)",
-                image: "https://livecards.net/pl/74407.jpg",
-                description: "Balance: 10$\nPrice: 1100 TK",
-                category: "giftcard",
-                details: "Apple Gift Card details: Redeemable at Apple stores and online.",
-                fixedPrice: 1100
-            },
-            {
-                name: "Apple Gift Card (15$)",
-                image: "https://livecards.net/pl/74407.jpg",
-                description: "Balance: 15$\nPrice: 1650 TK",
-                category: "giftcard",
-                details: "Apple Gift Card details: Redeemable at Apple stores and online.",
-                fixedPrice: 1650
-            },
-            {
-                name: "Google PLAY Gift Cards (5$)",
-                image: "https://images.tech.co/wp-content/uploads/2024/11/06100109/google-play-gift-card-708x400.jpg",
-                description: "Balance: 5$\nPrice: 550 TK",
-                category: "giftcard",
-                details: "Apple Gift Card details: Redeemable at Apple stores and online.",
-                fixedPrice: 550
-            },
-            {
-                name: "Google PLAY Gift Cards (10$)",
-                image: "https://images.tech.co/wp-content/uploads/2024/11/06100109/google-play-gift-card-708x400.jpg",
-                description: "Balance: 10$\nPrice: 1100 TK",
-                category: "giftcard",
-                details: "Redeem: Open Google Play Store → tap your profile → 'Payments & subscriptions' → 'Redeem code' → enter the gift card code.Use Balance: Buy apps, games, movies, books, or pay for subscriptions like YouTube Premium.",
-                fixedPrice: 1100
+                details: "Official Apple gift cards that can be used for App Store, iTunes, Apple Music, iCloud storage, and other Apple services. Delivered instantly via email.",
+                plans: [
+                    { name: "$5 Card", price: 550 },
+                    { name: "$10 Card", price: 1100 },
+                    { name: "$15 Card", price: 1500 }
+                ]
             },
             {
                 name: "Virtual MasterCard",
                 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2560px-MasterCard_Logo.svg.png",
-                description: "Balance: 1$-15$ Per Dollar Ret 110 TK",
+                description: "Virtual MasterCard\nOnline payments\nSecure transactions\nFlexible amounts",
                 category: "giftcard",
-                details: "Virtual MasterCard details: Use online anywhere Mastercard is accepted.",
-                fixedPrice: 110
+                details: "Virtual MasterCard for secure online payments. Perfect for international purchases, subscriptions, and online shopping. Available in various denominations.",
+                plans: [
+                    { name: "$1", price: 110 },
+                    { name: "$5", price: 550 },
+                    { name: "$10", price: 1100 },
+                    { name: "$15", price: 1650 }
+                ]
             },
             {
                 name: "Amazon Gift Card",
                 image: "https://shopvian.com/wp-content/uploads/2021/07/778f2cee60f050175dbbee93d205e194.png",
-                description: "Available: 5$, 10$, 15$, Custom\nPrice: 550 TK / 1100 TK / 1500 TK",
+                description: "Amazon gift cards\nGlobal shopping\nInstant delivery\nNo expiration",
                 category: "giftcard",
-                details: "Amazon Gift Card details: Perfect for shopping on Amazon globally.",
+                details: "Official Amazon gift cards for shopping on Amazon.com. Perfect for purchasing books, electronics, clothing, and millions of other products. No expiration date.",
                 plans: [
-                    { name: "5$", price: 550 },
-                    { name: "10$", price: 1100 },
-                    { name: "15$", price: 1500 }
+                    { name: "$5 Card", price: 550 },
+                    { name: "$10 Card", price: 1100 },
+                    { name: "$15 Card", price: 1500 }
                 ]
             },
+            {
+                name: "Play Store Gift Card",
+                image: "https://gamebuybd.com/wp-content/uploads/2022/07/Google-Play-Gift-Cards-1.png",
+                description: "Google Play gift cards\nApps, games & movies\nIn-app purchases\nInstant activation",
+                category: "giftcard",
+                details: "Google Play gift cards for purchasing apps, games, movies, books, and making in-app purchases. Compatible with all Android devices and Google services.",
+                plans: [
+                    { name: "$5 Card", price: 549 },
+                    { name: "$10 Card", price: 1099 },
+                    { name: "$15+ Card", price: 1649 }
+                ]
+            },
+
+            // Other Products
             {
                 name: "Amazon Prime Video",
                 image: "https://finevpn.org/wp-content/uploads/2024/02/amazon-prime-video-logo-logo.png",
-                description: "1 Month Plan\nPrice: 99 TK",
-                category: "giftcard",
-                details: "Amazon Prime Video details: Access to movies and series for one month.",
+                description: "Amazon Prime Video access\nThousands of movies & shows\nOriginal content\n1 month subscription",
+                category: "other",
+                details: "Get access to Amazon Prime Video with thousands of movies, TV shows, and award-winning original content. Includes free shipping benefits on Amazon purchases.",
                 fixedPrice: 99
             },
             {
-                name: "Google Play Gift Card (15$)",
-                image: "https://images.tech.co/wp-content/uploads/2024/11/06100109/google-play-gift-card-708x400.jpg",
-                description: "Available:15$\nPrice: 1650 TK",
-                category: "giftcard",
-                details: "Google Play Gift Card details: Redeemable for apps, games, and more on Google Play.",
-                fixedPrice: 1650
+                name: "All VPN Subscriptions",
+                image: "https://www.techjunkie.com/wp-content/uploads/2017/06/vpnslist.jpg",
+                description: "Complete VPN collection\nAll major providers\nCustom packages\nContact for pricing",
+                category: "other",
+                details: "Access to all major VPN services including ExpressVPN, NordVPN, Surfshark, CyberGhost, and more. Custom packages available based on your specific needs.",
+                contactOnly: true
             },
             {
-                name: "Steam Gift Card",
-                image: "https://gamebuybd.com/wp-content/uploads/2024/03/Steam-Gift-Card-US.jpg",
-                description: "Available: 5$, 10$, 15$\nPrice: 560 TK / 1110 TK / 1610 TK",
-                category: "giftcard",
-                details: "Steam Gift Card details: For purchasing games and software on Steam.",
-                plans: [
-                    { name: "5$", price: 560 },
-                    { name: "10$", price: 1110 },
-                    { name: "15$", price: 1610 }
-                ]
+                name: "Gift Cards Collection",
+                image: "https://miro.medium.com/v2/resize:fit:572/1*ayCjVveLK9r05ph6oQP5uQ.png",
+                description: "Complete gift card collection\nAll major brands\nCustom amounts\nBulk discounts available",
+                category: "other",
+                details: "Access to gift cards from all major brands including Apple, Google, Amazon, Steam, Netflix, Spotify, and many more. Custom amounts and bulk discounts available.",
+                contactOnly: true
             },
             {
-                name: "Xbox Gift Card",
-                image: "https://assets.gamingdeals.com/storage/xbox-gift-cards-header-1612868624W9tI2.png",
-                description: "5$ / 10$ / 15$\nPrice: 555 TK / 1105 TK / 1605 TK",
-                category: "giftcard",
-                details: "Xbox Gift Card details: Redeemable on Xbox and Microsoft Store.",
-                plans: [
-                    { name: "5$", price: 555 },
-                    { name: "10$", price: 1105 },
-                    { name: "15$", price: 1605 }
-                ]
+                name: "Shadow Rocket",
+                image: "https://nextnet.me/images/blog/ssr-ios_hu0a93cd8c851bb47105fc482487e88d78_37940_1110x0_resize_lanczos_3.png",
+                description: "Shadow Rocket iOS app\nPremium proxy client\niOS compatibility\n$5 gift card included",
+                category: "other",
+                details: "Shadow Rocket is a premium proxy client for iOS devices. Includes a $5 gift card for easy purchase and setup. Perfect for advanced proxy configurations on iPhone and iPad.",
+                fixedPrice: 549
             },
             {
-                name: "Netflix Gift Card",
-                image: "https://gameloverbd.com/public/uploads/all/rTGWjzh9Bfkbk4bTryeEn2It2LQVwi4FHNlAyYVN.webp",
-                description: "5$/ 10$/ 15$\nPrice:555 TK / 1105 TK / 1605 TK",
-                category: "giftcard",
-                details: "Netflix Gift Card details: One month subscription for Netflix streaming.",
-                plans: [
-                    { name: "5$", price: 555 },
-                    { name: "10$", price: 1105 },
-                    { name: "15$", price: 1605 }
-                ]
+                name: "iCloud Storage",
+                image: "https://www.dolphincomputer.co.in/wp-content/uploads/2024/12/6.jpg",
+                description: "iCloud storage plans\nAll storage tiers\nSeamless sync\nContact for custom plans",
+                category: "other",
+                details: "iCloud storage subscriptions for all your Apple devices. Available in all storage tiers from 50GB to 2TB. Seamless synchronization across iPhone, iPad, Mac, and PC.",
+                contactOnly: true
             }
         ];
 
         let currentCategory = 'all';
         let currentProducts = products;
-        let userBalance = 0; // This will be managed by Firebase
-        let currentUser = {
-            email: '',
-            name: '',
-            isLoggedIn: false,
-            joinDate: '',
-            totalOrders: 0,
-            totalSpent: 0
-        };
+
+
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             displayProducts(products);
-            updateBalanceDisplay();
-            updateUserDisplay();
-            
-            // Check if user is logged in
-            checkLoginStatus();
         });
-
-        // User Management Functions
-        function checkLoginStatus() {
-            auth.onAuthStateChanged((user) => {
-                if (user) {
-                    // User is signed in
-                    currentUser = {
-                        email: user.email,
-                        name: user.displayName || user.email.split('@')[0],
-                        isLoggedIn: true,
-                        joinDate: new Date(user.metadata.creationTime).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }),
-                        totalOrders: 0,
-                        totalSpent: 0
-                    };
-                    
-                    // Load user data from Firestore
-                    db.collection('users').doc(user.uid).get().then((doc) => {
-                        if (doc.exists) {
-                            const userData = doc.data();
-                            userBalance = userData.balance || 0;
-                            currentUser.totalOrders = userData.totalOrders || 0;
-                            currentUser.totalSpent = userData.totalSpent || 0;
-                            
-                            updateBalanceDisplay();
-                            updateUserDisplay();
-                        }
-                    });
-                    
-                    updateUserDisplay();
-                } else {
-                    // User is signed out
-                    currentUser = {
-                        email: '',
-                        name: '',
-                        isLoggedIn: false,
-                        joinDate: '',
-                        totalOrders: 0,
-                        totalSpent: 0
-                    };
-                    updateUserDisplay();
-                }
-            });
-        }
-
-        function toggleAccountMenu() {
-            const menu = document.getElementById('accountMenu');
-            menu.classList.toggle('hidden');
-        }
-
-        function showProfile() {
-            hideAllSections();
-            document.getElementById('profileSection').classList.remove('hidden');
-            document.getElementById('accountMenu').classList.add('hidden');
-        }
-
-        function showOrderHistory() {
-            hideAllSections();
-            document.getElementById('orderHistorySection').classList.remove('hidden');
-            document.getElementById('accountMenu').classList.add('hidden');
-            loadOrderHistory();
-        }
-
-        function loadOrderHistory() {
-            const orderHistoryList = document.getElementById('orderHistoryList');
-            
-            if (currentUser.isLoggedIn) {
-                auth.currentUser.getIdToken().then((idToken) => {
-                    return fetch(`/api/orders?uid=${auth.currentUser.uid}`, {
-                        headers: {
-                            'Authorization': `Bearer ${idToken}`
-                        }
-                    });
-                })
-                .then(response => response.json())
-                .then(orders => {
-                    if (orders.length > 0) {
-                        orderHistoryList.innerHTML = '';
-                        orders.forEach(order => {
-                            const orderElement = document.createElement('div');
-                            orderElement.className = 'border border-gray-200 rounded-lg p-4';
-                            orderElement.innerHTML = `
-                                <div class="flex justify-between items-start mb-3">
-                                    <div>
-                                        <h4 class="font-semibold text-gray-800">${order.productName}</h4>
-                                        <p class="text-sm text-gray-500">Order #${order.orderId} • ${new Date(order.timestamp).toLocaleDateString()}</p>
-                                    </div>
-                                    <div class="text-right">
-                                        <div class="font-bold text-green-600">৳${order.totalPrice}</div>
-                                        <span class="inline-block px-2 py-1 text-xs bg-green-100 text-green-800 rounded-full">${order.status || 'Completed'}</span>
-                                    </div>
-                                </div>
-                                <div class="text-sm text-gray-600">
-                                    <p>Payment Method: ${order.paymentMethod}</p>
-                                    <p>Status: ${order.deliveryStatus || 'Delivered via email'}</p>
-                                </div>
-                            `;
-                            orderHistoryList.appendChild(orderElement);
-                        });
-                    } else {
-                        orderHistoryList.innerHTML = `
-                            <div class="text-center py-8 text-gray-500">
-                                <i class="fas fa-shopping-bag text-4xl mb-4 opacity-50"></i>
-                                <p>No orders found. Your order history will appear here.</p>
-                            </div>
-                        `;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading order history:', error);
-                    orderHistoryList.innerHTML = `
-                        <div class="text-center py-8 text-gray-500">
-                            <i class="fas fa-exclamation-triangle text-4xl mb-4 text-yellow-500"></i>
-                            <p>Could not load order history. Please try again later.</p>
-                        </div>
-                    `;
-                });
-            } else {
-                orderHistoryList.innerHTML = `
-                    <div class="text-center py-8 text-gray-500">
-                        <i class="fas fa-user-lock text-4xl mb-4 opacity-50"></i>
-                        <p>Please login to view your order history</p>
-                        <button onclick="window.location.href='login.html'" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                            Login Now
-                        </button>
-                    </div>
-                `;
-            }
-        }
-
-        function logout() {
-            auth.signOut().then(() => {
-                currentUser = {
-                    email: '',
-                    name: '',
-                    isLoggedIn: false,
-                    joinDate: '',
-                    totalOrders: 0,
-                    totalSpent: 0
-                };
-                
-                updateUserDisplay();
-                document.getElementById('accountMenu').classList.add('hidden');
-                
-                // Redirect to home
-                showCategory('all');
-                
-                alert('You have been logged out successfully!');
-            }).catch((error) => {
-                console.error('Logout error:', error);
-                alert('Error logging out. Please try again.');
-            });
-        }
-
-        // Balance Management Functions
-        function updateBalanceDisplay() {
-            // Update all balance displays
-            document.getElementById('headerBalance').textContent = userBalance;
-            document.getElementById('modalBalance').textContent = userBalance;
-            document.getElementById('orderBalance').textContent = userBalance;
-            document.getElementById('paymentBalance').textContent = userBalance;
-            document.getElementById('profileBalance').textContent = userBalance;
-        }
-
-        function showBalanceModal() {
-            if (!currentUser.isLoggedIn) {
-                alert('Please login to add funds to your account.');
-                window.location.href = 'login.html';
-                return;
-            }
-            
-            updateBalanceDisplay();
-            document.getElementById('balanceModal').classList.add('show');
-        }
-
-        // Add funds form submission
-        document.getElementById('addFundsForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                amount: parseFloat(document.getElementById('addAmount').value),
-                senderPhone: document.getElementById('senderPhone').value,
-                transactionId: document.getElementById('fundTransactionId').value,
-                timestamp: new Date().toISOString(),
-                status: 'pending',
-                userId: auth.currentUser.uid,
-                userEmail: auth.currentUser.email
-            };
-            
-            // Save fund request to Firestore
-            db.collection('fundRequests').add(formData)
-                .then(() => {
-                    alert('Fund request submitted successfully! Your balance will be updated after verification (usually within 1-2 hours).');
-                    closeModal('balanceModal');
-                    this.reset();
-                })
-                .catch((error) => {
-                    console.error('Error submitting fund request:', error);
-                    alert('Error submitting fund request. Please try again.');
-                });
-        });
-
-        // Payment method toggle
-        function togglePaymentFields() {
-            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-            const manualFields = document.getElementById('manualPaymentFields');
-            const phoneField = document.getElementById('paymentPhone');
-            const transactionField = document.getElementById('transactionId');
-            
-            if (paymentMethod === 'balance') {
-                manualFields.style.display = 'none';
-                phoneField.required = false;
-                transactionField.required = false;
-            } else {
-                manualFields.style.display = 'block';
-                phoneField.required = true;
-                transactionField.required = true;
-            }
-        }
 
         // Display products with improved design
         function displayProducts(productsToShow) {
@@ -1195,31 +632,33 @@
                 
                 // Determine price display
                 let priceDisplay = '';
-                if (product.fixedPrice) {
-                    priceDisplay = `<div class="price-badge text-white px-3 py-1 rounded-full text-sm font-bold">৳${product.fixedPrice}</div>`;
+                if (product.contactOnly) {
+                    priceDisplay = `<div class="price-badge text-white px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-bold">Contact</div>`;
+                } else if (product.fixedPrice) {
+                    priceDisplay = `<div class="price-badge text-white px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-bold">৳${product.fixedPrice}</div>`;
                 } else if (product.plans && product.plans.length > 0) {
                     const minPrice = Math.min(...product.plans.map(p => p.price));
-                    priceDisplay = `<div class="price-badge text-white px-3 py-1 rounded-full text-sm font-bold">From ৳${minPrice}</div>`;
+                    priceDisplay = `<div class="price-badge text-white px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-bold">From ৳${minPrice}</div>`;
                 }
 
                 // Category badge
-                const categoryBadge = `<div class="category-badge text-white px-2 py-1 rounded-full text-xs font-medium uppercase">${product.category}</div>`;
+                const categoryBadge = `<div class="category-badge text-white px-1 md:px-2 py-1 rounded-full text-xs font-medium uppercase">${product.category}</div>`;
                 
                 productCard.innerHTML = `
                     <div class="relative">
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-32 md:h-48 object-cover">
                         <div class="absolute top-3 left-3">${categoryBadge}</div>
                         <div class="absolute top-3 right-3">${priceDisplay}</div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-gray-800 mb-3 line-clamp-2">${product.name}</h3>
-                        <p class="text-sm text-gray-600 mb-4 whitespace-pre-line line-clamp-3">${product.description}</p>
-                        <div class="flex space-x-2">
-                            <button onclick="showDetails('${product.name}')" class="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium">
-                                <i class="fas fa-info-circle mr-1"></i>Details
+                    <div class="p-3 md:p-6">
+                        <h3 class="text-sm md:text-lg font-bold text-gray-800 mb-2 md:mb-3 line-clamp-2">${product.name}</h3>
+                        <p class="text-xs md:text-sm text-gray-600 mb-3 md:mb-4 whitespace-pre-line line-clamp-2 md:line-clamp-3">${product.description}</p>
+                        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
+                            <button onclick="showDetails('${product.name}')" class="flex-1 bg-gray-100 text-gray-700 py-2 px-2 md:px-4 rounded-lg hover:bg-gray-200 transition-colors text-xs md:text-sm font-medium">
+                                <i class="fas fa-info-circle mr-1"></i><span class="hidden md:inline">Details</span><span class="md:hidden">Info</span>
                             </button>
-                            <button onclick="showOrderForm('${product.name}')" class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all text-sm font-medium">
-                                <i class="fas fa-shopping-cart mr-1"></i>Buy Now
+                            <button onclick="showOrderForm('${product.name}')" class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-2 md:px-4 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all text-xs md:text-sm font-medium">
+                                <i class="fas fa-shopping-cart mr-1"></i><span class="hidden md:inline">Buy Now</span><span class="md:hidden">Buy</span>
                             </button>
                         </div>
                     </div>
@@ -1304,18 +743,15 @@
 
         // Show order form
         function showOrderForm(productName) {
-            if (!currentUser.isLoggedIn) {
-                alert('Please login to place an order.');
-                window.location.href = 'login.html';
-                return;
-            }
-            
             const product = products.find(p => p.name === productName);
             if (product) {
-                document.getElementById('selectedProduct').value = productName;
+                // Check if this is a contact-only product
+                if (product.contactOnly) {
+                    alert('This product requires custom pricing. Please contact us on WhatsApp: +880 1316838963 for more information and pricing.');
+                    return;
+                }
                 
-                // Update balance displays
-                updateBalanceDisplay();
+                document.getElementById('selectedProduct').value = productName;
                 
                 // Update product info
                 document.getElementById('orderProductInfo').innerHTML = `
@@ -1337,12 +773,10 @@
                 } else {
                     planSelection.classList.add('hidden');
                     priceDisplay.classList.remove('hidden');
-                    document.getElementById('totalPrice').textContent = `৳${product.fixedPrice}`;
+                    const price = `৳${product.fixedPrice}`;
+                    document.getElementById('totalPrice').textContent = price;
+                    document.getElementById('totalPriceField').value = price;
                 }
-                
-                // Reset payment method
-                document.querySelector('input[name="paymentMethod"][value="manual"]').checked = true;
-                togglePaymentFields();
                 
                 document.getElementById('orderModal').classList.add('show');
             }
@@ -1355,7 +789,9 @@
             const priceDisplay = document.getElementById('priceDisplay');
             
             if (selectedOption.dataset.price) {
-                document.getElementById('totalPrice').textContent = `৳${selectedOption.dataset.price}`;
+                const price = `৳${selectedOption.dataset.price}`;
+                document.getElementById('totalPrice').textContent = price;
+                document.getElementById('totalPriceField').value = price;
                 priceDisplay.classList.remove('hidden');
             } else {
                 priceDisplay.classList.add('hidden');
@@ -1364,70 +800,16 @@
 
         // Handle form submission
         document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
             
-            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-            const totalPrice = parseInt(document.getElementById('totalPrice').textContent.replace('৳', ''));
-            
-            // Check balance payment
-            if (paymentMethod === 'balance') {
-                if (userBalance < totalPrice) {
-                    alert(`Insufficient balance! You need ৳${totalPrice} but have ৳${userBalance}. Please add funds or choose manual payment.`);
-                    return;
-                }
-            }
-            
-            const formData = {
-                product: document.getElementById('selectedProduct').value,
-                customerName: document.getElementById('customerName').value,
-                customerEmail: document.getElementById('customerEmail').value,
-                plan: document.getElementById('planSelect').value,
-                paymentMethod: paymentMethod,
-                paymentPhone: document.getElementById('paymentPhone').value,
-                transactionId: document.getElementById('transactionId').value,
-                notes: document.getElementById('orderNotes').value,
-                totalPrice: totalPrice,
-                timestamp: new Date().toISOString(),
-                userId: auth.currentUser.uid,
-                status: 'pending',
-                deliveryStatus: 'processing'
-            };
-            
-            // Save order to Firestore
-            db.collection('orders').add(formData)
-                .then(() => {
-                    if (paymentMethod === 'balance') {
-                        // Deduct from balance
-                        const newBalance = userBalance - totalPrice;
-                        return db.collection('users').doc(auth.currentUser.uid).update({
-                            balance: newBalance,
-                            totalOrders: firebase.firestore.FieldValue.increment(1),
-                            totalSpent: firebase.firestore.FieldValue.increment(totalPrice)
-                        });
-                    }
-                })
-                .then(() => {
-                    if (paymentMethod === 'balance') {
-                        alert('Order placed successfully using account balance! You will receive your product details via email shortly.');
-                    } else {
-                        alert('Order submitted successfully! We will verify your payment and contact you within 24 hours.');
-                    }
-                    closeModal('orderModal');
-                    this.reset();
-                    
-                    // Update local balance if paid with balance
-                    if (paymentMethod === 'balance') {
-                        userBalance -= totalPrice;
-                        currentUser.totalOrders += 1;
-                        currentUser.totalSpent += totalPrice;
-                        updateBalanceDisplay();
-                        updateUserDisplay();
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error submitting order:', error);
-                    alert('Error submitting order. Please try again.');
-                });
+            // Re-enable button after a delay to prevent multiple submissions
+            setTimeout(() => {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 3000);
         });
 
         // Show about section
@@ -1447,8 +829,6 @@
             document.getElementById('productsSection').classList.add('hidden');
             document.getElementById('aboutSection').classList.add('hidden');
             document.getElementById('contactSection').classList.add('hidden');
-            document.getElementById('profileSection').classList.add('hidden');
-            document.getElementById('orderHistorySection').classList.add('hidden');
         }
 
         // Modal functions
@@ -1483,43 +863,7 @@
             if (e.target.classList.contains('modal')) {
                 e.target.classList.remove('show');
             }
-            
-            // Close account menu when clicking outside
-            const accountMenu = document.getElementById('accountMenu');
-            const accountButton = e.target.closest('[onclick="toggleAccountMenu()"]');
-            
-            if (!accountButton && !accountMenu.contains(e.target)) {
-                accountMenu.classList.add('hidden');
-            }
         });
-
-        function updateUserDisplay() {
-            if (currentUser.isLoggedIn) {
-                const firstName = currentUser.name.split(' ')[0] || currentUser.email.split('@')[0];
-                
-                // Update header display
-                document.getElementById('userName').textContent = firstName;
-                document.getElementById('userEmail').textContent = currentUser.email;
-                
-                // Update dropdown display
-                document.getElementById('dropdownUserName').textContent = currentUser.name;
-                document.getElementById('dropdownUserEmail').textContent = currentUser.email;
-                
-                // Update profile display
-                document.getElementById('profileUserName').textContent = currentUser.name;
-                document.getElementById('profileUserEmail').textContent = currentUser.email;
-                document.getElementById('profileJoinDate').textContent = currentUser.joinDate;
-                document.getElementById('profileBalance').textContent = userBalance;
-                document.getElementById('totalOrders').textContent = currentUser.totalOrders;
-                document.getElementById('totalSpent').textContent = currentUser.totalSpent;
-            } else {
-                // Show guest user
-                document.getElementById('userName').textContent = 'Guest';
-                document.getElementById('userEmail').textContent = 'Not logged in';
-                document.getElementById('dropdownUserName').textContent = 'Guest User';
-                document.getElementById('dropdownUserEmail').textContent = 'Please login';
-            }
-        }
     </script>
 </body>
 </html>
