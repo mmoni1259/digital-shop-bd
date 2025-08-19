@@ -466,7 +466,7 @@
             },
             {
                 name: "Opinion Edge Premium Proxy",
-                image: "https://panel.opinion-edge.com/assets/icons/dashboard-logo-icon.png",
+                image: "https://play-lh.googleusercontent.com/Q_EkgqlKYBWTNLYT5JlhYgNyJzXwMYr8Jjyi8NaMIXpw5q_aFyWhWfQpVTKQPA-G1jJK",
                 description: "Opinion Edge premium proxy\nSpecialized for surveys\nHigh success rate\nDedicated support",
                 category: "proxy",
                 details: "Specialized proxy service optimized for Opinion Edge and similar survey platforms. High success rate with dedicated support for survey-related activities.",
@@ -505,8 +505,10 @@
                 image: "https://solutionsreview.com/wireless-network/files/2021/10/VPN-SurfShark.jpg",
                 description: "Surfshark VPN access\nUnlimited devices\n65+ countries\nCleanWeb feature",
                 category: "vpn",
-                details: "Surfshark VPN allows unlimited simultaneous connections, making it perfect for families and businesses. Features CleanWeb ad-blocker and servers in 65+ countries.",
-                fixedPrice: 35
+                details: "Surfshark VPN allows unlimited simultaneous connections, making it perfect for families and businesses. Features CleanWeb ad-blocker and servers in 65+ countries.", plans: [
+                    { name: "7 Days", price: 35 },
+                    { name: "30 Days", price: 499 }
+                ] 
             },
             {
                 name: "HMA VPN",
@@ -514,13 +516,37 @@
                 description: "HMA VPN service\n190+ countries\nFast streaming\nEasy to use",
                 category: "vpn",
                 details: "HMA (HideMyAss) VPN offers one of the largest server networks with locations in 190+ countries. Known for fast streaming capabilities and user-friendly interface.",
-                fixedPrice: 199
+               plans: [
+                    { name: "7 Days", price: 40 },
+                    { name: "30 Days", price: 150 }
+                ] 
+            },          {
+                name: "Cyber Ghost VPN",
+                image: "https://play-lh.googleusercontent.com/mY9EidYNw86nCKpAvQN9DeVOi5iUoCHOSk1pAt-d5WS1UGDkfiooI5Ic3feVbrFvdJI",
+                description: "CyberGhost VPN helps you browse the web with increased privacy, security, and anonymity.It prevents trackers from logging your IP address and snoopers from gathering details about your digital identity.If you look for extra privacy and security, you should use a VPN.",
+                category: "vpn",
+                details: "CyberGhost VPN helps you browse the web with increased privacy, security, and anonymity. It prevents trackers from logging your IP address and snoopers from gathering details about your digital identity. If you look for extra privacy and security, you should use a VPN.",
+               plans: [
+                    { name: "3 Days", price: 30 },
+                    { name: "45 Days", price: 490 }
+                ] 
+            },
+                {
+                name: "PIA VPN",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Private_Internet_Access_Logo_2021.svg/640px-Private_Internet_Access_Logo_2021.svg.png",
+                description: "Protect all your devices with PIA’s top-rated VPN service./nConnect to NextGen servers in 91 countries and discover fast VPN connection speeds.",
+                category: "vpn",
+                details: "Protect all your devices with PIA’s top-rated VPN service./nConnect to NextGen servers in 91 countries and discover fast VPN connection speeds.",
+               plans: [
+                    { name: "7 Days", price: 35 },
+                    { name: "30 Days", price: 499 }
+                ]
             },
 
             // Gift Cards
             {
                 name: "Apple Gift Card",
-                image: "https://livecards.net/pl/74407.jpg",
+                image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/giftcard-og-202303?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1679597545112",
                 description: "Apple Store gift cards\nApp Store & iTunes\nInstant delivery\nMultiple denominations",
                 category: "giftcard",
                 details: "Official Apple gift cards that can be used for App Store, iTunes, Apple Music, iCloud storage, and other Apple services. Delivered instantly via email.",
@@ -554,6 +580,17 @@
                     { name: "$10 Card", price: 1100 },
                     { name: "$15 Card", price: 1500 }
                 ]
+            },{
+                name: "Steam Gift Cards",
+                image: "https://media.overclock3d.net/2023/10/steam-digital-gift-cards-are-now-available-online_6524701a70035.jpeg",
+                description: "Steam gift cards\nGlobal shopping\nInstant delivery\nNo expiration",
+                category: "giftcard",
+                details: "Official Steam gift cards for shopping on Steam.com. Perfect for purchasing books, electronics, clothing, and millions of other products. No expiration date.",
+                plans: [
+                    { name: "$5 Card", price: 550 },
+                    { name: "$10 Card", price: 1100 },
+                    { name: "$15 Card", price: 1500 }
+                ]
             },
             {
                 name: "Play Store Gift Card",
@@ -576,6 +613,18 @@
                 category: "other",
                 details: "Get access to Amazon Prime Video with thousands of movies, TV shows, and award-winning original content. Includes free shipping benefits on Amazon purchases.",
                 fixedPrice: 99
+            },{
+                name: "Telegram Premium",
+                image: "https://www.drtelegram.com/upload/media/blog/What-is-Telegram-premium.webp",
+                description: "Telegram Premium\nUpgrade your Telegram experience with exclusive features\nGet faster downloads,larger file uploads,and unique stickers\nActivate using code hdh/nVGG for premium access",
+                category: "other",
+                details: "Telegram Premium\nUpgrade your Telegram experience with exclusive features\nGet faster downloads,larger file uploads,and unique stickers\nActivate using code hdh/nVGG for premium access",
+                 plans: [
+                    { name: "1 Month", price: 550 },
+                    { name: "3 Month", price: 1650 },
+                    { name: "6 Month", price: 2250 },
+                   { name: "12 Month", price: 3350 }
+                ]
             },
             {
                 name: "All VPN Subscriptions",
@@ -592,6 +641,17 @@
                 category: "other",
                 details: "Access to gift cards from all major brands including Apple, Google, Amazon, Steam, Netflix, Spotify, and many more. Custom amounts and bulk discounts available.",
                 contactOnly: true
+            },            {
+                name: "Robolox Gift Card",
+                image: "https://images.rbxcdn.com/d572cc8714e0ec771ad8268977880ddf.png",
+                description: "Roblox Gift Card\nEasily top up your Roblox account with this gift card \nRedeem it for Robux or a Roblox Premium subscription\nUse Robux to unlock exclusive items, accessories, and game pass",
+                category: "giftcard",
+                details: "Roblox Gift Card\nEasily top up your Roblox account with this gift card \nRedeem it for Robux or a Roblox Premium subscription\nUse Robux to unlock exclusive items, accessories, and game pass",
+                plans: [
+                    { name: "$5 Card", price: 550 },
+                    { name: "$10 Card", price: 1100 },
+                    { name: "$15 Card", price: 1500 }
+                ]
             },
             {
                 name: "Shadow Rocket",
@@ -600,14 +660,28 @@
                 category: "other",
                 details: "Shadow Rocket is a premium proxy client for iOS devices. Includes a $5 gift card for easy purchase and setup. Perfect for advanced proxy configurations on iPhone and iPad.",
                 fixedPrice: 549
+            }, {
+                name: "USA Whatsapp Account",
+                image: "https://cdn6.aptoide.com/imgs/c/7/6/c7644008f58970f3d495d2d68958652a_fgraphic.png",
+                description: "You can buy a usa whatssapp\naccount from us at a low price\niOS compatibility/nJust order and get a number.",
+                category: "other",
+                details: "You can buy a usa whatssapp\naccount from us at a low price\niOS compatibility/nJust order and get a number.",
+                plans: [
+                    { name: "1 Account", price: 199 }
+                   
+                ]
             },
             {
-                name: "iCloud Storage",
-                image: "https://www.dolphincomputer.co.in/wp-content/uploads/2024/12/6.jpg",
+                name: "Gmail Account",
+                image: "https://help.bw.edu/hc/article_attachments/16605708288027",
                 description: "iCloud storage plans\nAll storage tiers\nSeamless sync\nContact for custom plans",
                 category: "other",
                 details: "iCloud storage subscriptions for all your Apple devices. Available in all storage tiers from 50GB to 2TB. Seamless synchronization across iPhone, iPad, Mac, and PC.",
-                contactOnly: true
+                plans: [
+                    { name: "1 Gmail", price: 25 },
+                    { name: "10 Gmail", price: 240 },
+                    { name: "15 Gmail", price: 450 }
+                ]
             }
         ];
 
